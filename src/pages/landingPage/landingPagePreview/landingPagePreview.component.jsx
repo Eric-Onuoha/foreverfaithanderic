@@ -4,13 +4,15 @@ import "./landingPagePreview.styles.scss";
 import Hero from "../../../components/hero/hero.component";
 import EventDates from "../../../components/eventDates/eventDates.component";
 import CountDown from "../../../components/countdown/countdown.component";
+import Story from "../../../components/story/story.component";
 
 const LandingPagePreview = () =>{
     return(
         <Fragment>
             <Hero></Hero>
-            {/* <CountDown></CountDown> */}
             <EventDates></EventDates>
+            <Story></Story>
+            <CountDown></CountDown>
         </Fragment>
 
     )

@@ -40,6 +40,7 @@ const EventDatesPreview = ({dates}) => {
                     />
                 </svg>
             </div>
+            
         </div>
     )
 };

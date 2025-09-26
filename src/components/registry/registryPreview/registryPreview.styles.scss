@@ -21,60 +21,84 @@
   }
 }
 
-#RegistryPreviewComponent{
-    margin-top: 105px;
+#RegistryPreviewComponent {
+  margin-top: 105px;
 
-    #access{
-        margin-top: 40vh;
+  #access {
+    margin-top: 40vh;
 
-        input{
-            width: 400px;
-            height: 35px;
-            margin-right: 25px;
-            @include rounded(8px);
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #d1d5db;   // light gray border
-            background: #fff;
-            font-size: 1rem;
-            transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    input {
+      width: 400px;
+      height: 35px;
+      margin-right: 25px;
+      @include rounded(8px);
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      font-size: 1rem;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
 
-            // placeholder
-            &::placeholder {
-                color: #9ca3af;
-                opacity: 1;
-            }
+      &::placeholder {
+        color: #9ca3af;
+        opacity: 1;
+      }
 
-            // hover & focus
-            &:hover {
-                border-color: darken(#d1d5db, 8%);
-            }
-            &:focus {
-                outline: none;                 // remove default outline
-                border-color: #60a5fa;         // blue-ish
-                box-shadow: 0 0 0 3px rgba(96,165,250,0.15);
-            }
+      &:hover {
+        border-color: darken(#d1d5db, 8%);
+      }
+      &:focus {
+        outline: none;
+        border-color: #60a5fa;
+        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+      }
 
-            // disabled
-            &:disabled {
-                background: #f8fafc;
-                color: #94a3b8;
-                cursor: not-allowed;
-            }
-        }
-
-        button{
-            @include btn-base;
-            background-color: #EE9B8D;
-            color: white;
-
-            &:hover:not(:disabled) {
-                background-color: darken(#EE9B8D, 7%);
-            }
-
-            &:focus-visible {
-                outline: none;
-                box-shadow: 0 0 0 3px rgba(#EE9B8D, 0.3);
-            }
-        }
+      &:disabled {
+        background: #f8fafc;
+        color: #94a3b8;
+        cursor: not-allowed;
+      }
     }
+
+    button {
+      @include btn-base;
+      background-color: #ee9b8d;
+      color: white;
+
+      &:hover:not(:disabled) {
+        background-color: darken(#ee9b8d, 7%);
+      }
+
+      &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(#ee9b8d, 0.3);
+      }
+    }
+  }
+
+  @media (max-width: 1100px) {
+    #access {
+      #accessCode{
+        margin-top: 15px;
+        padding: 0 15px;
+      }
+
+      margin-top: 20vh; // reduce spacing on smaller screens
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      input {
+        width: 90%;   // shrink to fit screen
+        margin-right: 0;
+        font-size: 0.95rem;
+      }
+
+      button {
+        width: 90%;   // button matches input width
+        font-size: 0.95rem;
+        padding: 0.6rem;
+      }
+    }
+  }
 }

@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useRef, Fragment } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./countdownPreview.styles.scss";
-
-import ImageCurve from "../../../assets/images/heroCurve.svg"
 
 
 const bigDay = "2025-12-13T00:00:00+01:00";
@@ -37,13 +35,13 @@ const CountDownPreview = ({ className = "", showAfter = true }) => {
   const parts = msToParts(diffMs);
 
   const isPast = diffMs < 0;
-  const containerLabel = isPast ? "Since our big day" : "Until our big day";
+  const containerLabel = isPast ? "since our big day" : "until our big day";
 
   return (
     <div id="countdownPreviewComponent">
       <div className={`countdown-card ${className}`.trim()} aria-live="polite">
       <div className="countdown-header">
-        <h3>Countdown — {containerLabel}</h3>
+        <h3>Countdown {containerLabel}</h3>
       </div>
 
       <div className={`ticker ${isPast ? "past" : "future"}`}>
@@ -68,14 +66,6 @@ const CountDownPreview = ({ className = "", showAfter = true }) => {
         </div>
       </div>
     </div>
-          <div id="imageCurve" src={ImageCurve} alt="">
-           <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 2560 168.6227" enable-background="new 0 0 2560 168.6227">
-              <g>
-              <path d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
-              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"></path>
-            </g>
-          </svg>
-      </div>
     </div>
   );
 };
