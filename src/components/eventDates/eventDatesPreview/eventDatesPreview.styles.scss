@@ -1,0 +1,55 @@
+#eventDatesPreviewComponent{
+    margin-top: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+
+    #dates{
+        width: 50%;
+
+        #datesData{
+            margin-top: 80px;
+            padding: 0 40% 0 15px;
+        
+            .eventDetails{
+                margin-top: 50px;
+
+                .details{
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    .svg-mask-container{
+        width: 550px;
+        margin: -20px 20px 0 auto;
+    }
+}
+
+@media(max-width: 1100px){
+    #eventDatesPreviewComponent{
+        display: block;
+
+        #dates{
+            width: 100%;
+            
+            #datesData {
+                flex-direction: column;
+                padding: 0 20px;   
+                margin-top: 0; 
+                gap: 5px;     
+                
+                .eventDetails {
+                    text-align: center;
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .svg-mask-container{
+            width: 280px;
+            margin: 0 auto;
+        }
+    }
+}

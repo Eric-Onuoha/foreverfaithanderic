@@ -1,0 +1,103 @@
+#navigationPreviewComponent{
+    // box-shadow: 0 1px 4px rgb(0 0 0 / 0.2);
+    height: 100px;
+    padding: 0;
+
+    #mobileMonogram{
+        display: none;
+    }
+
+    .hamburgerMenu img{
+        display: none;
+    }
+    
+    .navItemsContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 0 60px 0 40px;
+
+        .navItem{
+            color: #333333;
+            cursor: pointer;
+            align-items: center;
+        }
+    }
+
+
+    #weddingMonogram{
+        width: 99px;
+        height: 99px;
+    }
+
+    #navToggle{
+        position: relative;
+        right: 0;
+    }
+}
+
+@media(max-width: 1100px){
+    #navigationPreviewComponent{
+        height: 100px;
+
+        #weddingMonogram{
+            height: 98px;
+            width: 98px;
+            // margin: -10px 0 0 0;
+        }
+
+        #mobileMonogram{
+            display: block;
+        }
+
+        #laptopMonogram{
+            display: none;
+        }
+
+        #navItemsMobile{
+            display: none;
+        }
+
+        #navModal{
+            top: 0;
+            position: absolute;
+            height: 100vh;
+            width: 55vw;
+            left: 0;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 6;
+        }
+
+        .navItemsContainer{
+            position: absolute;
+            display: block;
+            top: 100px;
+            right: 0;
+            height: 100vh;
+            width: 50vw;
+            background-color: #FFFFFF;
+            text-align: right;
+            margin: 0;
+
+            .navItem{
+                border-bottom: 1px solid #F5F5F5;
+                padding-right: 12px;
+            }
+        }
+
+        .hamburgerMenu img{
+            display: block;
+            height: 2em;
+            margin-right: 35px;
+            position: relative;
+            right: -28px;
+            top: 0;
+        }
+        
+        // #navItemsMobile{
+        //     display: none;
+        // }
+    }
+}

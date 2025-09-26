@@ -1,0 +1,80 @@
+@mixin rounded($radius: 6px) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+#RegistryPreviewComponent{
+    margin-top: 105px;
+
+    #access{
+        margin-top: 40vh;
+
+        input{
+            width: 400px;
+            height: 35px;
+            margin-right: 25px;
+            @include rounded(8px);
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #d1d5db;   // light gray border
+            background: #fff;
+            font-size: 1rem;
+            transition: box-shadow 0.15s ease, border-color 0.15s ease;
+
+            // placeholder
+            &::placeholder {
+                color: #9ca3af;
+                opacity: 1;
+            }
+
+            // hover & focus
+            &:hover {
+                border-color: darken(#d1d5db, 8%);
+            }
+            &:focus {
+                outline: none;                 // remove default outline
+                border-color: #60a5fa;         // blue-ish
+                box-shadow: 0 0 0 3px rgba(96,165,250,0.15);
+            }
+
+            // disabled
+            &:disabled {
+                background: #f8fafc;
+                color: #94a3b8;
+                cursor: not-allowed;
+            }
+        }
+
+        button{
+            @include btn-base;
+            background-color: #EE9B8D;
+            color: white;
+
+            &:hover:not(:disabled) {
+                background-color: darken(#EE9B8D, 7%);
+            }
+
+            &:focus-visible {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(#EE9B8D, 0.3);
+            }
+        }
+    }
+}

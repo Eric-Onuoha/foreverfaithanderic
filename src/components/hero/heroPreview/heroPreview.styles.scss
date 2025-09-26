@@ -1,0 +1,62 @@
+#heroPreviewComponent{
+    padding: 100px 0 0 0;
+    height: 800px;
+
+    .emblemfont{
+        z-index: 12;
+        position: absolute;
+        left: 30px;
+        top: 350px;
+        font-family: "Baskerville Italic Swash", "Edwardian Script ITC", "Didot Swash variants";
+        font-size: 5.2rem;
+        font-weight: 550;
+        line-height: 1.2;
+        margin: 0 0 0.5em;
+        color: #74572A;
+        // height: 200px;
+    }
+
+    #heroImageMobile{
+        display: none;
+    }
+
+    #heroImage{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 80% 27%;
+    }
+
+    #imageCurve{
+        margin: -100px 0 0 0;
+        fill: #ffffff;
+    }
+}
+
+@media(max-width: 1100px){
+    #heroPreviewComponent{
+    padding: 99px 0 0 0;
+    height: 65vh;
+
+    .emblemfont{
+        display: none;
+    }
+
+    #heroImage{
+        display: none;
+    }
+
+    #heroImageMobile{
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    #imageCurve{
+        margin-top: -25px;
+        fill: #ffffff;
+        z-index: 10;
+    }
+}
+}
