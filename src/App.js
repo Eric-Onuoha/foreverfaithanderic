@@ -9,15 +9,15 @@ import RegistryPage from './pages/registryPage/registryPage.component';
 import RegistryItems from './components/registryItems/registryItems.component';
 import { getMultipleDocuments, getSingleDocument } from './firestore/getFromFirestore';
 import { useDispatch } from 'react-redux';
-import { updateRegistryUsers } from './redux/reducers/registryusers';
+import { updateRegistryUserEmail } from './redux/reducers/registryusers';
 import { updateRegistryItems } from './redux/reducers/registryItems';
 
 function App() {  
     const dispatch = useDispatch();
 
-  useEffect(() => {
-    getMultipleDocuments("RegistryAccess").then((registryUsers) => dispatch(updateRegistryUsers(registryUsers)));
-  }, []);
+  // useEffect(() => {
+  //   getMultipleDocuments("RegistryAccess").then((registryUsers) => dispatch(updateRegistryUsers(registryUsers)));
+  // }, []);
 
   useEffect(() => {
     getMultipleDocuments("registryItems").then((registryItems) => dispatch(updateRegistryItems(registryItems)));

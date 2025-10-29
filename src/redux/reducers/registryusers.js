@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const registryusersSlice = createSlice({
-    name: "registryusers",
-    initialState: {},
-    reducers: {
-        updateRegistryUsers:(state, action) => {
-            state.registryusers = action.payload;
-        }
-    }
+  name: "registryusers",
+  initialState: {
+    email: "",
+  },
+  reducers: {
+    updateRegistryUserEmail: (state, action) => {
+      state.email = action.payload;
+    },
+  },
 });
 
-export const {updateRegistryUsers} = registryusersSlice.actions;
+export const { updateRegistryUserEmail } = registryusersSlice.actions;
 export const updateRegistryReducer = registryusersSlice.reducer;
