@@ -42,6 +42,7 @@ const RegistryPreview = ({ activatedEmails }) => {
             Please reach out to the couple for an access code.
           </label>
           <br />
+          <br />
           <input
             id="accessCode"
             type="text"
