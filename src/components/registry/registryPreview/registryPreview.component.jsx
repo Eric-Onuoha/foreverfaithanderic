@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateRegistryUserEmail } from "../../../redux/reducers/registryusers";
 import "./registryPreview.styles.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentUser } from "../../../redux/reducers/registryusers";
 
 const RegistryPreview = ({ activatedEmails }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [accessForm, setAccessForm] = useState({ accessCode: "" });
+  const accessFormField = {
+    accessCode: ""
+  };
+
+  const [accessForm, setAccessForm] = useState(accessFormField);
   const { accessCode } = accessForm;
 
   const handleChange = (event) => {
@@ -18,28 +22,24 @@ const RegistryPreview = ({ activatedEmails }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (activatedEmails.includes(accessCode)) {
       try {
-        // ✅ Store email in Redux before navigating
-        dispatch(updateRegistryUserEmail(accessCode));
-
+        dispatch(setCurrentUser(accessCode));
         navigate("/giftregistrypreview");
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
-    } else {
-      alert("Invalid access code. Please contact the couple for assistance.");
     }
+    return;
   };
 
   return (
     <div id="RegistryPreviewComponent">
       <div id="access">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="accessCode" id="accessCodeLabel">
-            The Gift Registry is limited to family and close friends. Please
-            reach out to the couple for an access code.
+          <label htmlFor="accessCode" id="accessCode">
+            The Gift Registry is limited to family and close friends.
+            Please reach out to the couple for an access code.
           </label>
           <br />
           <input
@@ -47,8 +47,7 @@ const RegistryPreview = ({ activatedEmails }) => {
             type="text"
             name="accessCode"
             onChange={handleChange}
-            placeholder="Enter Access Code (Email)"
-            value={accessCode}
+            placeholder="Enter Access Code"
           />
           <button type="submit">View Gift Registry</button>
         </form>

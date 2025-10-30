@@ -3,14 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 export const registryusersSlice = createSlice({
   name: "registryusers",
   initialState: {
-    email: "",
+    registryusers: [],     // list of all users
+    currentUser: null      // currently active/selected user
   },
   reducers: {
-    updateRegistryUserEmail: (state, action) => {
-      state.email = action.payload;
+      updateRegistryUsers: (state, action) => {
+      state.registryusers = action.payload;
     },
-  },
+      setCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    }
+  }
 });
 
-export const { updateRegistryUserEmail } = registryusersSlice.actions;
+export const { updateRegistryUsers, setCurrentUser } = registryusersSlice.actions;
 export const updateRegistryReducer = registryusersSlice.reducer;

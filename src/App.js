@@ -8,20 +8,22 @@ import GalleryPage from './pages/galleryPage/galleryPage.component';
 import RegistryPage from './pages/registryPage/registryPage.component';
 import RegistryItems from './components/registryItems/registryItems.component';
 import { getMultipleDocuments, getSingleDocument } from './firestore/getFromFirestore';
-import { useDispatch } from 'react-redux';
-import { updateRegistryUserEmail } from './redux/reducers/registryusers';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateRegistryUsers } from './redux/reducers/registryusers';
 import { updateRegistryItems } from './redux/reducers/registryItems';
+import Authenticate from './components/authenticate/authenticate.component';
 
 function App() {  
     const dispatch = useDispatch();
+    const userMail = useSelector((state) => state.registryusers.currentUser) || "";
 
-  // useEffect(() => {
-  //   getMultipleDocuments("RegistryAccess").then((registryUsers) => dispatch(updateRegistryUsers(registryUsers)));
-  // }, []);
+  useEffect(() => {
+    getMultipleDocuments("RegistryAccess").then((registryUsers) => dispatch(updateRegistryUsers(registryUsers)));
+  }, []);
 
   useEffect(() => {
     getMultipleDocuments("registryItems").then((registryItems) => dispatch(updateRegistryItems(registryItems)));
-  })
+  }, []);
 
   return (
     <div className="App">
@@ -30,7 +32,7 @@ function App() {
           <Route index element={<LandingPage/>}/>
           <Route path='gallery' element={<GalleryPage/>}></Route>
           <Route path='registry' element={<RegistryPage/>}></Route>
-          <Route path='giftregistrypreview' element={<RegistryItems/>}></Route>
+          <Route path='giftregistrypreview' element={<Authenticate component={RegistryItems} user={userMail}/>}></Route>
         </Route>
         <Route path='*' element={[<Navigation></Navigation>, <LandingPage></LandingPage>]}></Route>
       </Routes>
