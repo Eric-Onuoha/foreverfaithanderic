@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { reduceItemQuantity } from "../../../redux/reducers/registryItems";
 import { reduceRegistryItemQuantity } from "../../../firestore/postToFirestore";
+import CountDown from "../../countdown/countdown.component";
 
 const RegistryItemsPreview = () => {
   const dispatch = useDispatch();
@@ -148,6 +149,12 @@ const RegistryItemsPreview = () => {
       </div>
 
       {statusMessage && <p className="status-message">{statusMessage}</p>}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <CountDown></CountDown>
     </div>
   );
 };
