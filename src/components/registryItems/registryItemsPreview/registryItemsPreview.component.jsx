@@ -15,8 +15,7 @@ const RegistryItemsPreview = () => {
 
   // ✅ Use environment key or fallback
   const paystackPublicKey =
-    process.env.REACT_APP_PAYSTACK_PUBLIC_KEY ||
-    "pk_live_71221614db8ca1640b87bba15f41c9344c1cc481";
+    process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
 
   const products = Object.entries(registryItems)
     .map(([key, item]) => ({
